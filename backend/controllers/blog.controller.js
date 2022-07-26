@@ -1,23 +1,24 @@
-const Blog = require('../models/blog.model');
+const BlogService = require('../services/blog.service');
 
-// Create and Save a new Blog
+/**
+ * @info Create and Save a new Blog
+ */
 exports.create = async(req, res) => {
 
     try {
-
-        const blog = new Blog(req.body);
-        await new Blog(blog).save();
+        const blog = await BlogService.create(req.body);
         return res.status(201).json(blog);
-
     } catch (err) {
         return res.status(404).send(err);
     }
 };
 
-// Retrieve all Blogs from the database.
+/**
+ * @info Retrieve all Blogs from the database
+ */
 exports.findAll = async(req, res) => {
     try {
-        const blogs = await Blog.find().sort({ createdAt: -1 });
+        const blogs = await BlogService.findAll();
         return res.status(200).json(blogs);
     } catch (err) {
         return res.status(404).send(err);
