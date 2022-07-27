@@ -1,8 +1,9 @@
-const express = require("express");
-const cors = require("cors");
+import express from 'express';
+import cors from 'cors';
+import { config } from "dotenv"; config();
 const routes = require('./routes/__.routes');
 
-const app = express();
+const app: express.Application = express();
 app.set('port', process.env.SERVER_PORT || 3000);
 const corsOptions = {
     origin: "http://localhost:3000"
@@ -19,7 +20,7 @@ app.use(express.json());
  */
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
+app.get("/", (_req: express.Request, res: express.Response) => {
     res.json({ message: "Welcome to the application." });
 });
 

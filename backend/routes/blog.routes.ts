@@ -1,4 +1,4 @@
-const express = require('express');
+import express from 'express';
 const router = express();
 router.disable('x-powered-by');
 const blogCtrl = require('../controllers/blog.controller');

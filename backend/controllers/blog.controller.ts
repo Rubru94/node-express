@@ -1,9 +1,10 @@
+import express = require("express");
 const BlogService = require('../services/blog.service');
 
 /**
  * @info Create and Save a new Blog
  */
-exports.create = async(req, res) => {
+exports.create = async (req: express.Request, res: express.Response) => {
 
     try {
         const blog = await BlogService.create(req.body);
@@ -16,7 +17,7 @@ exports.create = async(req, res) => {
 /**
  * @info Retrieve all Blogs from the database
  */
-exports.findAll = async(req, res) => {
+exports.findAll = async (req: express.Request, res: express.Response) => {
     try {
         const blogs = await BlogService.findAll();
         return res.status(200).json(blogs);
@@ -26,12 +27,12 @@ exports.findAll = async(req, res) => {
 };
 
 // Find a single Blog with an id
-exports.findOne = (req, res) => {};
+exports.findOne = (req: express.Request, res: express.Response) => { };
 // Update a Blog by the id in the request
-exports.update = (req, res) => {};
+exports.update = (req: express.Request, res: express.Response) => { };
 // Delete a Blog with the specified id in the request
-exports.delete = (req, res) => {};
+exports.delete = (req: express.Request, res: express.Response) => { };
 // Delete all Blogs from the database.
-exports.deleteAll = (req, res) => {};
+exports.deleteAll = (req: express.Request, res: express.Response) => { };
 // Find all published Blogs
-exports.findAllPublished = (req, res) => {};
+exports.findAllPublished = (req: express.Request, res: express.Response) => { };

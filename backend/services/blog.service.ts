@@ -1,6 +1,6 @@
 const Blog = require('../models/blog.model');
 
-exports.create = async(blog) => {
+exports.create = async(blog: any) => {
     return new Blog(blog).save();
 };
 
